@@ -4,114 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homework Animation</title>
+    <title>Homework Krug</title>
     <style>
-        body {
-            background-color: #050210;
-            
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,body {
+        display: grid;
+        height: 100%;
+        place-items: center;
+        background: #101010;
+      }
+      .center {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 93px;
+        background: #02040c;
+        border-radius: 10px;
+      }
+      .krugGlavni {
+        position: relative;
+        margin: 0 50px;
+        background: #101010;
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+        background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+        animation: rotate 1s linear infinite;
+      }
+      .krugGlavni .krug {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 260px;
+        width: 260px;
+        border-radius: 50%;
+        background: #0e0a24;
+        z-index: 1;
+        
+      }
+      .krugGlavni span {
+        border-radius: 50%;
+        height: 100%;
+        width: 100%;
+        background: inherit;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(60px);
+      }
+     
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+   
+      @keyframes pulse {
+        0% {
+          transform: scale(0.1);
+          box-shadow: 0 0 0 0 rgb(22 30 92);
+          background: linear-gradient(45deg, #0d1638, transparent);
         }
-    
-        .krug {
-            width: 300px;
-            height: 300px;
-            border-radius: 100%;
-            margin: auto;
-            background: #050210;
-            position: absolute;
+        
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
         }
-        .krugPravljenje {
-            width: 300px;
-            height: 300px;
-            animation-name: krugUkrugu;
-            animation-duration: 1.4s;
-            transition: cubic-bezier(1, 0, 0, 1);
-            animation-iteration-count: infinite;
-            
+        
+        100% {
+          transform: scale(0.1);
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
         }
-        .krugGlavni {
-            display: flex;
-            width: 320px;
-            height: 320px;
-            border-radius: 100%;
-            margin: 20% auto;
-            background: linear-gradient(#fb5dad, #55fb9f, #b97aff); 
-            -webkit-animation: glow 1s ease-in-out infinite alternate;
-            -moz-animation: glow 1s ease-in-out infinite alternate;
-            animation-name: glavniKrugAnimacija;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            animation-fill-mode: backwards;
-    
-        }
-      
-        .krugFix {
-            width: 300px;
-            height: 300px;
-            border-radius: 100%;
-            margin: auto;
-            text-align: center;
-            background: #050210;
-
-
-            
-        }
-
-
-        @keyframes krugUkrugu {
-            from {
-                margin: auto;   
-                width: 20px;
-                height: 1%;
-                border-radius: 100%;
-                transform: translateX(0px) translateY(0px) rotate(0deg);
-                background-color: #0e072a;
-            }
-            to {
-                transform: translate(300px , 300px);
-                border-radius: 100%;
-                background-color: #0e072a;
-                transform: translateX(0px) translateY(0px) rotate(0deg);
-                margin: auto;
-            } 
-        }
-        @keyframes glavniKrugAnimacija {
-            from {
-                transform: translateX(0px) rotate(0deg);
-                background-image: linear-gradient(-90deg, #fb5dad 0%, #55fb9f 47%, #b97aff 100%);
-                width: 400px;
-                height: 400px;
-            }
-
-            to {
-                transform: translateX(0px) rotate(360deg);
-                background-image: linear-gradient(-90deg, #fb5dad 0%, #55fb9f 47%, #b97aff 100%);
-                width: 400px;
-                height: 400px;
-            }
-        }
-
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 20px #e60073, 0 0 20px #e60073, 0 0 20px #e60073, 0 0 20px #e60073, 0 0 20px #e60073;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6;
-            }
-            }
+      }
     </style>
 </head>
 <body>
-
+    <div class="center">
         <div class="krugGlavni">
-            <div class="krugFix">
-                <div class="krug">
-                    <div class="krugPravljenje"></div>
-                </div>
-            </div>
+           <div class="krug"></div>
+           <span></span>
         </div>
-
-  
- 
+     </div>
 </body>
 </html>
